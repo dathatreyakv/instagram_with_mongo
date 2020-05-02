@@ -1,9 +1,10 @@
 development:
   clients:
     default:
-      database: instagram_development
+      database: <%= ENV['DEV_DATABASE'] %>
       hosts:
-        - localhost:27017
+        # To connect localhost/spectfic IP where mongoD is running
+        - 192.168.17.1:27017
       options:
 
   options:
@@ -11,10 +12,11 @@ development:
 test:
   clients:
     default:
-      database: instagram_with_mongo_test
-      hosts:
-        - localhost:27017
+      # To connect to cloud mongoD -- 
+      # create local_env.yml, check "local_env_sample.yml" for reference
+      url: mongodb+srv://<%= ENV['DB_USER'] %>:<%= ENV['DB_PASSWORD'] %>@<%= ENV['CLUSTER_CONNECT_PATH'] %>/<%= ENV['TEST_DATABASE'] %>?retryWrites=true&w=majority
       options:
+        server_selection_timeout: 30
         read:
           mode: :primary
         max_pool_size: 1

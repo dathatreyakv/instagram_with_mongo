@@ -1,3 +1,10 @@
+require 'yaml'
+
+env_file = File.join(File.dirname(__FILE__), 'local_env.yml')
+YAML.load(File.open(env_file)).each do |key, value|
+  ENV[key.to_s] = value
+end if File.exists?(env_file)
+
 require_relative 'boot'
 
 require "rails"

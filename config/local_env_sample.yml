@@ -1,0 +1,5 @@
+DB_USER: "admin"
+DB_PASSWORD: "admin"
+CLUSTER_CONNECT_PATH: "cluster0-29abc.mongodb.net"
+DEV_DATABASE: "instagram_development"
+TEST_DATABASE: "instagram_test"
