@@ -14,7 +14,7 @@ test:
     default:
       # To connect to cloud mongoD -- 
       # create local_env.yml, check "local_env_sample.yml" for reference
-      url: mongodb+srv://<%= ENV['DB_USER'] %>:<%= ENV['DB_PASSWORD'] %>@<%= ENV['CLUSTER_CONNECT_PATH'] %>/<%= ENV['TEST_DATABASE'] %>?retryWrites=true&w=majority
+      uri: mongodb+srv://<%= ENV['DB_USER'] %>:<%= ENV['DB_PASSWORD'] %>@<%= ENV['CLUSTER_CONNECT_PATH'] %>/<%= ENV['TEST_DATABASE'] %>?retryWrites=true&w=majority
       options:
         server_selection_timeout: 30
         read:
